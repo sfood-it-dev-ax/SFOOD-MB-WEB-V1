@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import type { ReactElement } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { me } from './api/auth.api';
 import { LoginPage } from './pages/LoginPage';
@@ -7,7 +8,7 @@ import { useAuthStore } from './store/authStore';
 import { useUiStore } from './store/uiStore';
 import { toUserMessage } from './utils/errors';
 
-const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+const ProtectedRoute = ({ children }: { children: ReactElement }) => {
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
   const sessionChecked = useAuthStore((s) => s.sessionChecked);
   const location = useLocation();
